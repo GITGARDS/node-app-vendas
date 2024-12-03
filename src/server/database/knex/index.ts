@@ -18,4 +18,4 @@ const getEnvironment = () => {
   }
 };
 
-export const Knex = knex(getEnvironment());
+export const dbKnex = knex(getEnvironment());

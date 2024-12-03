@@ -1,10 +1,10 @@
 
 import express from "express";
-import { appRouter } from "./router";
+import { appRoute, estoqueRoute } from "./routes";
 
 const Server = express();
 
-Server.use(appRouter);
+Server.use(appRoute, estoqueRoute);
 
 export { Server };
 

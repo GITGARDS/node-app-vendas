@@ -15,8 +15,8 @@
     },
     "exclude": ["./node_modules", "./build"]
     }
-- npm i express @types/express
-- npm i http-status-code -D
+- npm i express@4  @types/express@4
+- npm i http-status-codes -D
 - npm i sqlite -D
 - pakage.json scripts -> "start": "ts-node ./src/index.ts",
 - criar a pasta src e index.ts

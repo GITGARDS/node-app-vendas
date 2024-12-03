@@ -1,3 +1,3 @@
 export enum ETableNames {
-  ESTOQUE = "estoque",
+  estoque = "estoque",
 }
