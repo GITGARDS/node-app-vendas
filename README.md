@@ -23,3 +23,6 @@
 - testar npm start
 - subir no git
 - criar arquivo .gitignore
+- criar arquivo src/server/server.ts
+- criar arquivo .env
+- npm i dotenv --save-dev
