@@ -26,3 +26,6 @@
 - criar arquivo src/server/server.ts
 - criar arquivo .env
 - npm i dotenv --save-dev
+- npm i knex
+- npm remove sqlite
+- npm add sqlite3 --save-dev

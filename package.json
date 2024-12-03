@@ -4,7 +4,13 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node ./src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "production": "node ./build/index.js",
+    "build": "tsc",
+    "knex:rollback-all": "knex --knexfile ./src/server/database/knex/Environment.ts migrate:rollback --all",
+    "knex:rollback": "knex --knexfile ./src/server/database/knex/Environment.ts migrate:rollback",                                                 
+    "knex:migrate": "knex --knexfile ./src/server/database/knex/Environment.ts migrate:latest",                                       
+    "knex:seed": "knex --knexfile ./src/server/database/knex/Environment.ts seed:run",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -12,12 +18,13 @@
   "description": "",
   "dependencies": {
     "@types/express": "^5.0.0",
-    "express": "^4.21.1"
+    "express": "^4.21.1",
+    "knex": "^3.1.0"
   },
   "devDependencies": {
     "dotenv": "^16.4.6",
     "http-status-code": "^2.1.0",
-    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
   }
