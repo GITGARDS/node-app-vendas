@@ -34,3 +34,7 @@
 - npm i yup --save-dev
 - npm i bcryptjs @types/bcryptjs --save-dev
 - npm i jsonwebtoken @types/jsonwebtoken --save-dev
+- npm i mysql2 --save-dev
+
+drop schema if exists app_vendas;
+create schema if not exists app_vendas;
