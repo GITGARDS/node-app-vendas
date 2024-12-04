@@ -3,15 +3,12 @@ import { Environment } from "../../shared/environment";
 import { ETableNames } from "../ETableNames";
 import { dbKnex } from "../knex";
 
-const provider = {
-  tabela: ETableNames.estoque,
-};
 
 interface IBodyProps extends Omit<IEstoque, "id"> {}
 
 const getAll = async (page: number, limit: number, filter: string, id = 0) => {
   try {
-    const result = await dbKnex(provider.tabela)
+    const result = await dbKnex(ETableNames.estoque)
       .select("*")
       .where("id", Number(id))
       .orWhere("descricao", "like", `%${filter}%`)
@@ -19,7 +16,7 @@ const getAll = async (page: number, limit: number, filter: string, id = 0) => {
       .limit(limit);
 
     if (id > 0 && result.every((item) => item.id !== id)) {
-      const resultById = await dbKnex(provider.tabela)
+      const resultById = await dbKnex(ETableNames.estoque)
         .select("*")
         .where("id", "=", id)
         .first();
@@ -36,7 +33,7 @@ const getAll = async (page: number, limit: number, filter: string, id = 0) => {
 
 const getById = async (id: number) => {
   try {
-    const result = await dbKnex(provider.tabela)
+    const result = await dbKnex(ETableNames.estoque)
       .select("*")
       .where("id", "=", id)
       .first();
@@ -52,7 +49,7 @@ const getById = async (id: number) => {
 const create = async (obj: IBodyProps) => {
   console.log("obj", obj);
   try {
-    const [result] = await dbKnex(provider.tabela).insert(obj).returning("id");
+    const [result] = await dbKnex(ETableNames.estoque).insert(obj).returning("id");
 
     if (typeof result === "object") {
       return result.id;
@@ -68,7 +65,7 @@ const create = async (obj: IBodyProps) => {
 
 export const updateById = async (id: number, obj: IBodyProps) => {
   try {
-    const result = await dbKnex(provider.tabela)
+    const result = await dbKnex(ETableNames.estoque)
       .update(obj)
       .where("id", "=", id);
 
@@ -81,7 +78,7 @@ export const updateById = async (id: number, obj: IBodyProps) => {
 };
 export const deleteById = async (id: number): Promise<void | Error> => {
   try {
-    const result = await dbKnex(provider.tabela).where("id", "=", id).del();
+    const result = await dbKnex(ETableNames.estoque).where("id", "=", id).del();
 
     if (result > 0) return;
 
@@ -93,7 +90,7 @@ export const deleteById = async (id: number): Promise<void | Error> => {
 
 export const count = async (filter = ""): Promise<number | Error> => {
   try {
-    const [{ count }] = await dbKnex(provider.tabela)
+    const [{ count }] = await dbKnex(ETableNames.estoque)
       .where("descricao", "like", `%${filter}%`)
       .count<[{ count: number }]>("* as count");
 

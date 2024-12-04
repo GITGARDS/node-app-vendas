@@ -4,15 +4,14 @@ import { UsuarioProvider } from "../../database/providers";
 import { IUsuario } from "../../models/Usuario";
 import { JWTService, PasswordCrypto } from "../../shared/services";
 
-interface IBodyProps extends Omit<IUsuario, "id" | "nome"> {}
-
 const signIn = async (
-  req: Request<{}, {}, IBodyProps>,
+  req: Request<{}, {}, Omit<IUsuario, "id" | "nome">>,
   res: Response
 ) => {
   const { email, senha } = req.body;
 
   const usuario = await UsuarioProvider.getByEmail(email);
+  
   if (usuario instanceof Error) {
     return res.status(StatusCodes.UNAUTHORIZED).json({
       errors: {
@@ -46,7 +45,7 @@ const signIn = async (
 };
 
 const signUp = async (
-  req: Request<{}, {}, IBodyProps>,
+  req: Request<{}, {}, Omit<IUsuario, "id">>,
   res: Response
 ) => {
   const result = await UsuarioProvider.create(req.body);

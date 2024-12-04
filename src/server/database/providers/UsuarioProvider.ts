@@ -3,15 +3,11 @@ import { PasswordCrypto } from "../../shared/services";
 import { ETableNames } from "../ETableNames";
 import { dbKnex } from "../knex";
 
-const provider = {
-  tabela: ETableNames.usuario,
-};
-
-const create = async (usuario: Omit<IUsuario, "id" | "nome">) => {
+const create = async (usuario: Omit<IUsuario, 'id'>) => {
   try {
     const hashedPassword = await PasswordCrypto.hashPassword(usuario.senha);
 
-    const [result] = await dbKnex(provider.tabela)
+    const [result] = await dbKnex(ETableNames.usuario)
       .insert({ ...usuario, senha: hashedPassword })
       .returning("id");
 
@@ -30,7 +26,7 @@ const create = async (usuario: Omit<IUsuario, "id" | "nome">) => {
 
 const getByEmail = async (email: string) => {
   try {
-    const result = await dbKnex(provider.tabela)
+    const result = await dbKnex(ETableNames.usuario)
       .select("*")
       .where("email", "=", email)
       .first();
