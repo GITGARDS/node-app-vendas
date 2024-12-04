@@ -1,5 +1,5 @@
 - criar projeto:      npm init -y
-- npm i typescript -D
+- npm i typescript --save-dev
 - criar tsconfig.json npx tsc --init
 - configuracao do tsconfig.json
     {
@@ -16,9 +16,10 @@
     "exclude": ["./node_modules", "./build"]
     }
 - npm i nodemon --save-dev
+- npm i ts-node --save-dev
 - npm i express@4  @types/express@4
-- npm i http-status-codes -D
-- npm i sqlite -D
+- npm i http-status-codes --save-dev
+- npm i sqlite --save-dev
 - pakage.json scripts -> "start": "ts-node ./src/index.ts",
 - criar a pasta src e index.ts
 - testar npm start
@@ -30,3 +31,4 @@
 - npm i knex
 - npm remove sqlite
 - npm add sqlite3 --save-dev
+- npm i yup --save-dev

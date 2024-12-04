@@ -1,2 +1,3 @@
-export * from "./EstoqueController";
+export * from "./Estoque/EstoqueController";
+export * from "./Estoque/EstoqueValidation";
 

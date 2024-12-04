@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
-import { EstoqueProvider } from "../database/providers";
-import { IEstoque } from "../models";
+import { EstoqueProvider } from "../../database/providers";
+import { IEstoque } from "../../models";
 
 interface IQueryProps {
   id?: number;

@@ -1,13 +1,34 @@
 import { Router } from "express";
-import { EstoqueController } from "../controllers";
+import { EstoqueValidation } from "../controllers";
+import { EstoqueController } from "../controllers/Estoque/EstoqueController";
 
 const estoqueRoute = Router();
 
-estoqueRoute.get("/estoque", EstoqueController.getAll);
-estoqueRoute.get("/estoque/:id", EstoqueController.getById);
-estoqueRoute.post("/estoque", EstoqueController.create);
-estoqueRoute.put("/estoque/:id", EstoqueController.updateById);
-estoqueRoute.delete("/estoque/:id", EstoqueController.deleteById);
+estoqueRoute.get(
+  "/estoque",
+  EstoqueValidation.getAll,
+  EstoqueController.getAll
+);
+estoqueRoute.get(
+  "/estoque/:id",
+  EstoqueValidation.getById,
+  EstoqueController.getById
+);
+estoqueRoute.post(
+  "/estoque",
+  EstoqueValidation.create,
+  EstoqueController.create
+);
+estoqueRoute.put(
+  "/estoque/:id",
+  EstoqueValidation.updateById,
+  EstoqueController.updateById
+);
+estoqueRoute.delete(
+  "/estoque/:id",
+  EstoqueValidation.deleteById,
+  EstoqueController.deleteById
+);
 
 export { estoqueRoute };
 
