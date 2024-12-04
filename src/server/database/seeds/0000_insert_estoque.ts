@@ -14,13 +14,16 @@ const datas = [
   {
     id: 1,
     descricao: "estoque 1",
+    urlImagem: "",
   },
   {
     id: 2,
     descricao: "estoque 2",
+    urlImagem: "",
   },
   {
     id: 3,
     descricao: "estoque 3",
+    urlImagem: "",
   },
 ];

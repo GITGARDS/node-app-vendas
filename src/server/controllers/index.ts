@@ -1,2 +1,2 @@
-export * from "./estoque";
+export * from "./EstoqueController";
 

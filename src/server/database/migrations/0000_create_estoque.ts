@@ -11,6 +11,7 @@ export async function up(knex: Knex) {
         `Tabela usada para armazenar ${ETableNames.estoque} do sistema!`
       );
     })
+    
     .then(() => {
       console.log(`Create Table ${ETableNames.estoque}.`);
     });

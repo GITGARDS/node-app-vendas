@@ -5,7 +5,14 @@ const environment: Knex.Config = {
   client: "sqlite3",
   useNullAsDefault: true,
   connection: {
-    filename: path.resolve("..", "..", "..", "..", "database.sqlite"),
+    filename: path.resolve(
+      __dirname,
+      "..",
+      "..",
+      "..",
+      "..",
+      "database.sqlite"
+    ),
   },
   migrations: {
     directory: path.resolve(__dirname, "..", "migrations"),
@@ -18,5 +25,7 @@ const environment: Knex.Config = {
 export const development: Knex.Config = {
   ...environment,
 };
-export const production: Knex.Config = {};
+export const production: Knex.Config = {
+  ...environment,
+};
 export const test: Knex.Config = {};

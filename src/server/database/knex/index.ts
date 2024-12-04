@@ -10,9 +10,9 @@ enum EEnvironment {
 const getEnvironment = () => {
   switch (process.env.NODE_ENV) {
     case EEnvironment.PRODUCTION:
-      return production;
+      return production;             
     case EEnvironment.DEVELOPMENT:
-      return development;
+      return development;             
     default:
       return test;
   }

@@ -1,7 +1,7 @@
+import { IEstoque } from "../../models";
 import { Environment } from "../../shared/environment";
 import { ETableNames } from "../ETableNames";
 import { dbKnex } from "../knex";
-import { IEstoque } from "../knex/@types/knex";
 
 const provider = {
   tabela: ETableNames.estoque,
@@ -45,15 +45,14 @@ const getById = async (id: number) => {
 
     return new Error(Environment.ERRO_AO_TENTAR_CONSULTAR_REGISTRO);
   } catch (error) {
-    console.log(error);
     return new Error(Environment.ERRO_AO_TENTAR_CONSULTAR_REGISTRO);
   }
 };
 
 const create = async (obj: IBodyProps) => {
+  console.log("obj", obj);
   try {
     const [result] = await dbKnex(provider.tabela).insert(obj).returning("id");
-    console.log("Create", result);
 
     if (typeof result === "object") {
       return result.id;
@@ -62,6 +61,7 @@ const create = async (obj: IBodyProps) => {
     }
     return new Error(Environment.ERRO_AO_TENTAR_CADASTRAR);
   } catch (error) {
+    console.log(error);
     return new Error(Environment.ERRO_AO_TENTAR_CADASTRAR);
   }
 };
@@ -76,7 +76,6 @@ export const updateById = async (id: number, obj: IBodyProps) => {
 
     return new Error(Environment.ERRO_AO_TENTAR_ALTERAR);
   } catch (error) {
-    console.log(error);
     return new Error(Environment.ERRO_AO_TENTAR_ALTERAR);
   }
 };
@@ -88,7 +87,6 @@ export const deleteById = async (id: number): Promise<void | Error> => {
 
     return new Error(Environment.ERRO_AO_TENTAR_EXCLUIR);
   } catch (error) {
-    console.log(error);
     return new Error(Environment.ERRO_AO_TENTAR_EXCLUIR);
   }
 };
@@ -103,7 +101,6 @@ export const count = async (filter = ""): Promise<number | Error> => {
 
     return new Error(Environment.ERRO_AO_TENTAR_CONSULTAR_TOTAL_REGISTROS);
   } catch (error) {
-    console.log(error);
     return new Error(Environment.ERRO_AO_TENTAR_CONSULTAR_TOTAL_REGISTROS);
   }
 };

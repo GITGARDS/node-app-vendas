@@ -1,5 +1,5 @@
 - criar projeto:      npm init -y
-- dependencia:        npm i typescript ts-node -D
+- npm i typescript -D
 - criar tsconfig.json npx tsc --init
 - configuracao do tsconfig.json
     {
@@ -15,6 +15,7 @@
     },
     "exclude": ["./node_modules", "./build"]
     }
+- npm i nodemon --save-dev
 - npm i express@4  @types/express@4
 - npm i http-status-codes -D
 - npm i sqlite -D
