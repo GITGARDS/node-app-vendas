@@ -32,3 +32,5 @@
 - npm remove sqlite
 - npm add sqlite3 --save-dev
 - npm i yup --save-dev
+- npm i bcryptjs @types/bcryptjs --save-dev
+- npm i jsonwebtoken @types/jsonwebtoken --save-dev

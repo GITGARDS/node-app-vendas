@@ -2,20 +2,16 @@ import { Knex } from "knex";
 import { ETableNames } from "../ETableNames";
 
 const provider = {
-  tabela: ETableNames.estoque,
+  tabela: ETableNames.usuario,
 };
 
 export async function up(knex: Knex) {
   return knex.schema
     .createTable(provider.tabela, (table) => {
       table.bigIncrements("id").primary().index();
-      table
-        .string("descricao", 150)
-        .checkLength(">=", 3)
-        .checkLength("<=", 150)
-        .index()
-        .notNullable();
-      table.string("urlImagem").nullable();
+      table.string("nome").notNullable().checkLength(">=", 3);
+      table.string("senha").notNullable().checkLength(">=", 6);
+      table.string("email").index().unique().notNullable().checkLength(">=", 5);
       table.comment(
         `Tabela usada para armazenar ${provider.tabela} do sistema!`
       );

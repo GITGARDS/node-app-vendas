@@ -1,1 +1,3 @@
-export * from "./EstoqueModel";
+export * from "./Estoque";
+export * from "./Usuario";
+

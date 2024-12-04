@@ -1,5 +1,5 @@
 import express from "express";
-import { appRoute, estoqueRoute } from "./routes";
+import { appRoute, estoqueRoute, usuarioRoute } from "./routes";
 import "./shared/services/TranslationsYup";
 
 const Server = express();
@@ -8,7 +8,7 @@ Server.use(express.json());
 
 // Server.use(JSONParseError);
 
-Server.use(appRoute, estoqueRoute);
+Server.use(appRoute, usuarioRoute, estoqueRoute);
 
 export { Server };
 
