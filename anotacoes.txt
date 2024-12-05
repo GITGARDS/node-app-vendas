@@ -4,7 +4,6 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./src/index.ts",
-    "start:tsnode": "ts-node ./src/index.ts",
     "production": "node ./build/index.js",
     "build": "tsc",
     "knex:rollback-all": "knex --knexfile ./src/server/database/knex/Environment.ts migrate:rollback --all",
@@ -41,5 +40,6 @@
     "yup": "^1.5.0"
   },
   "engines": {
+    "node": "22.x"
   }
 }

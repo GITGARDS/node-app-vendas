@@ -1,6 +1,6 @@
-FROM node:latest
-RUN mkdir -p /usr/src/app_vendas
-WORKDIR /usr/src/app_vendas
+FROM node:22-alpine
+RUN mkdir -p /usr/src/api_vendas/api
+WORKDIR /usr/src/api_vendas/api
 
 RUN rm -rf ./node_modules
 RUN rm -rf package-lock.json
@@ -10,4 +10,4 @@ RUN npm install
 
 COPY . .
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "start:tsnode"]

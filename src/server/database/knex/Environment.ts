@@ -33,7 +33,7 @@ export const production: Knex.Config = {
     port: Number(process.env.DB_PORT),
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE,    
+    database: process.env.DB_DATABASE,
   },
   migrations: {
     directory: path.resolve(__dirname, "..", "migrations"),
@@ -41,8 +41,23 @@ export const production: Knex.Config = {
   seeds: {
     directory: path.resolve(__dirname, "..", "seeds"),
   },
-  pool: {
-    
-  }
+  pool: {},
 };
+// export const production: Knex.Config = {
+//   client: "pg",
+//   migrations: {
+//     directory: path.resolve(__dirname, "..", "migrations"),
+//   },
+//   seeds: {
+//     directory: path.resolve(__dirname, "..", "seeds"),
+//   },
+//   connection: {
+//     host: process.env.DB_HOST,
+//     port: Number(process.env.DB_PORT),
+//     user: process.env.DB_USER,
+//     password: process.env.DB_PASSWORD,
+//     database: process.env.DB_DATABASE,
+//     ssl: { rejectUnauthorized: false },
+//   },
+// };
 export const test: Knex.Config = {};
