@@ -7,3 +7,5 @@
 *.sqlite
 
 .env
+
+anotacoes.txt
